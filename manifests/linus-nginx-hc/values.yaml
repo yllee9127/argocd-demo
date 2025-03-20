@@ -1,0 +1,4 @@
+# manifests/linus-nginx-hc/values.yaml
+service:
+  type: ClusterIP
+  port: 80
