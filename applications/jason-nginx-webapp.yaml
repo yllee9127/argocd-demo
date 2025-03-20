@@ -11,7 +11,7 @@ spec:
     repoURL: https://github.com/jason-leong-ihpc/argocd-demo.git
     targetRevision: HEAD
   destination:
-    namespace: demo
+    namespace: jason-ns
     server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
