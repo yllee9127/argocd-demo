@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jason-nginx-webapp
+  labels:
+    app: jason-nginx-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jason-nginx-webapp
+  template:
+    metadata:
+      labels:
+        app: jason-nginx-webapp
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
