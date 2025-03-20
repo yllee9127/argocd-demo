@@ -3,8 +3,6 @@ commonLabels:
 
 replicaCount: 3
 
-namespaceOverride: jsstrn-ns
-
 ingress:
   path: /jsstrn
   enabled: true
