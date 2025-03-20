@@ -15,6 +15,6 @@ ingress:
   ingressClassName: "nginx"
   tls: true
 
-podLabels:podLabels:
+podLabels:
   app: royston-nginx
   environment: production
