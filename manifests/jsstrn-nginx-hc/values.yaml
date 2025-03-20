@@ -4,13 +4,12 @@ commonLabels:
 replicaCount: 3
 
 ingress:
-  path: /jsstrn
   enabled: true
   pathType: Prefix
-  hostname: nginx-hc.sctp-sandbox.com
+  hostname: jsstrn.sctp-sandbox.com
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    external-dns.alpha.kubernetes.io/hostname: "nginx-hc.sctp-sandbox.com"
+    external-dns.alpha.kubernetes.io/hostname: "jsstrn.sctp-sandbox.com"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
   ingressClassName: "nginx"
   tls: true
