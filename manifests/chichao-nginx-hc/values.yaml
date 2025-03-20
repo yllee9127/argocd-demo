@@ -1,0 +1,69 @@
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  security:
+    allowInsecureImages: false
+
+nameOverride: "chichao-nginx-hc"
+fullnameOverride: "chichao-nginx-hc"
+
+image:
+  registry: docker.io
+  repository: bitnami/nginx
+  tag: 1.27.4-debian-12-r6
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+updateStrategy:
+  type: RollingUpdate
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+service:
+  type: LoadBalancer
+  ports:
+    http: 80
+    https: 443
+
+ingress:
+  enabled: true
+  hostname: chichao-nginx-hc.local
+  path: /
+  tls: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+podSecurityContext:
+  enabled: true
+  fsGroup: 1001
+
+containerSecurityContext:
+  enabled: true
+  runAsUser: 1001
+  runAsGroup: 1001
+  runAsNonRoot: true
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  timeoutSeconds: 5
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  timeoutSeconds: 3
+
+metrics:
+  enabled: false
+
+networkPolicy:
+  enabled: true
+  allowExternal: true
