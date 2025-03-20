@@ -6,7 +6,7 @@ commonLabels:
 ingress:
   enabled: true
   pathType: Prefix
-  hostname: nginx-hc.sctp-sandbox.com
+  hostname: xinwei-nginx-hc.sctp-sandbox.com
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     external-dns.alpha.kubernetes.io/hostname: "xinwei-nginx-hc.sctp-sandbox.com"
