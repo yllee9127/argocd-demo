@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jsstrn-guestbook
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: manifests/nginx-webapp
+    repoURL: https://github.com/ntu-ce8/guestbook.git
+    targetRevision: HEAD
+  destination:
+    namespace: jsstrn-guestbook
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
