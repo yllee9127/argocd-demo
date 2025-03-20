@@ -33,11 +33,15 @@ service:
 
 ingress:
   enabled: true
-  hostname: chek-nginx-hc.local
-  path: /
+  hostname: nginx-chek.sctp-sandbox.com
+  path: Prefix
   tls: true
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    external-dns.alpha.kubernetes.io/hostname: "nginx-chek.sctp-sandbox.com"
     nginx.ingress.kubernetes.io/rewrite-target: /
+  ingressClassName: "nginx"
+    
 
 podSecurityContext:
   enabled: true
