@@ -10,7 +10,7 @@ ingress:
   path: /linus
   enabled: true
   pathType: Prefix
-  hostname: nginx-hc.sctp-sandbox.com
+  hostname: linus-nginx-hc.sctp-sandbox.com
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     external-dns.alpha.kubernetes.io/hostname: "linus-nginx-hc.sctp-sandbox.com"
