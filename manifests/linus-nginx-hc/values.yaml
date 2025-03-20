@@ -1,4 +1,19 @@
 # manifests/linus-nginx-hc/values.yaml
-service:
-  type: ClusterIP
-  port: 80
+commonLabels:
+  label-for: linus-nginx-label
+
+replicaCount: 3
+
+namespaceOverride: linus-ns
+
+ingress:
+  path: /linus
+  enabled: true
+  pathType: Prefix
+  hostname: nginx-hc.sctp-sandbox.com
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    external-dns.alpha.kubernetes.io/hostname: "nginx-hc.sctp-sandbox.com"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  ingressClassName: "nginx"
+  tls: true
