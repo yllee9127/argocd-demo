@@ -1,12 +1,12 @@
 commonLabels:
-  label-for: jsstrn-nginx-label
+  label-for: cornelia-nginx-label
 
 replicaCount: 3
 
-namespaceOverride: jsstrn-ns
+namespaceOverride: cornelia-ns
 
 ingress:
-  path: /jsstrn
+  path: /cornelia
   enabled: true
   pathType: Prefix
   hostname: nginx-hc.sctp-sandbox.com
