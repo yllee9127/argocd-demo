@@ -33,7 +33,7 @@ service:
 
 ingress:
   enabled: true
-  hostname: chek-nginx-hc.local
+  hostname: nginx-chek.sctp-sandbox.com
   path: /
   tls: true
   annotations:
